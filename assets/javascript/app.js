@@ -62,7 +62,7 @@ $(document).ready(function(){
 				if (game.counter === 0) {
 					$("#countdown").append("<h5 class='timeUp'>* Your time is up! *</h5>");
 					game.done();
-					game.counter=60;
+
 				}
 			},
 
@@ -73,10 +73,12 @@ $(document).ready(function(){
         $("#countdown h5").remove();
 				timer = setInterval(game.countdown, 1000);
 				$("#countdown").append("<h4>Time Left: <span id='counter-number'>60</span> Seconds</h4>");
+        console.log("This is game.counter", game.counter);
 
 				for (var i = 0; i < questions.length; i++) {
 					// section.append('<h6>' + '<br>' + questions[i].question + '<br>' + '</h6>');
 					section.append(`<h6> <br> ${questions[i].question} <br> </h6>`);
+          console.log("game.counter", game.counter);
 
 					for (var j = 0; j < questions[i].choices.length; j++){
 						section.append('<input type="radio" name="question' + '-' + i + '"value="' + questions[i].choices[j] + '" >'  + ' ' + questions[i].choices[j] + '<br>');
@@ -91,6 +93,7 @@ $(document).ready(function(){
 					if ($(checkedElement).val() == questions[index].correctAnswer) {
 						console.log(checkedElement);
 						game.correct++;
+            console.log(game.correct);
 					} else {
 						game.incorrect++;
 					}
@@ -99,7 +102,7 @@ $(document).ready(function(){
 
 				this.results();
 				console.log(this.results);
-				console.log(timer);
+				console.log(game.counter);
 				},
 
 				results: function() {
