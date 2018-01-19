@@ -94,21 +94,17 @@ $(document).ready(function(){
 
 				$.each($("input[type='radio']:checked"), function(index, checkedElement) {
 					if ($(checkedElement).val() == questions[index].correctAnswer) {
-						console.log("Checked element is", checkedElement);
 						game.correct++;
-            console.log("correct",game.correct);
+            console.log("This is correct",checkedElement);
 					} else {
 						game.incorrect++;
-            console.log("incorrect",game.incorrect);
+            console.log("Incorrect",checkedElement);
 					}
 
 				});
 
 				this.results();
-				console.log("This is game.counter",game.counter);
         game.counter=60;
-
-        console.log("This is the counter now", game.counter);
 
 				},
 
