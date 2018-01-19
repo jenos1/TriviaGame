@@ -5,6 +5,7 @@ $(document).ready(function(){
 
 	$(document).on("click", "#start", function(event){
 		game.start();
+
 	});
 
 	$(document).on("click", "#done", function(event){
@@ -67,18 +68,18 @@ $(document).ready(function(){
 			},
 
 			start: function() {
-				section.html("<p> </p>");
+        section.html("<p> </p>");
 				section2.html("<p> </p>");
-				$("#countdown h4").remove();
-        $("#countdown h5").remove();
+				$("#countdown h4, h5").remove();
+        game.incorrect=0;
+        game.correct=0;
+
 				timer = setInterval(game.countdown, 1000);
 				$("#countdown").append("<h4>Time Left: <span id='counter-number'>60</span> Seconds</h4>");
-        console.log("This is game.counter", game.counter);
 
 				for (var i = 0; i < questions.length; i++) {
 					// section.append('<h6>' + '<br>' + questions[i].question + '<br>' + '</h6>');
 					section.append(`<h6> <br> ${questions[i].question} <br> </h6>`);
-          console.log("game.counter", game.counter);
 
 					for (var j = 0; j < questions[i].choices.length; j++){
 						section.append('<input type="radio" name="question' + '-' + i + '"value="' + questions[i].choices[j] + '" >'  + ' ' + questions[i].choices[j] + '<br>');
@@ -89,20 +90,26 @@ $(document).ready(function(){
 			},
 
 			done: function() {
-				$.each($("input[type='radio']:checked"), function(index,checkedElement) {
+        clearInterval(timer);
+
+				$.each($("input[type='radio']:checked"), function(index, checkedElement) {
 					if ($(checkedElement).val() == questions[index].correctAnswer) {
-						console.log(checkedElement);
+						console.log("Checked element is", checkedElement);
 						game.correct++;
-            console.log(game.correct);
+            console.log("correct",game.correct);
 					} else {
 						game.incorrect++;
+            console.log("incorrect",game.incorrect);
 					}
 
 				});
 
 				this.results();
-				console.log(this.results);
-				console.log(game.counter);
+				console.log("This is game.counter",game.counter);
+        game.counter=60;
+
+        console.log("This is the counter now", game.counter);
+
 				},
 
 				results: function() {
@@ -116,6 +123,7 @@ $(document).ready(function(){
 				$("#start").removeAttr("disabled");
 
 				}
+
 		};
 
 
