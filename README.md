@@ -6,9 +6,10 @@ This is a multiple choice Trivia Game called "Old Time Fiddler's Music Trivia."
 
 * This is a timed game, allowing the user one minute to complete all questions.
 * User begins the game by clicking on the "Game Start" button.
-* Select ONLY one answer for each question, then click on the DONE button when you are finished with the entire game.
+* Select ONLY one answer for each question, and be sure to SELECT ONE ANSWER for EACH question. Then click on the DONE button when you are finished with the entire game.
 	* DONE will display how many questions the user answered correctly, incorrectly and left blank.
 	* The game ends when the time runs out or the user clicks on DONE.
+*
 
 ## Requirements
 * None
@@ -20,4 +21,5 @@ This is a multiple choice Trivia Game called "Old Time Fiddler's Music Trivia."
 * None 
 
 ## Troubleshooting
-* Click DONE to complete the game before the timer runs out -- Then the "Game Start" button will be available to Try again if you would like.
+* Click DONE to complete the game before the timer runs out -- Then the "Game Start" button will be available to Try again if you would like. 
+* You MUST select one answer for EACH question. 

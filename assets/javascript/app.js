@@ -68,11 +68,11 @@ $(document).ready(function(){
 			},
 
 			start: function() {
-        section.html("<p> </p>");
+        		section.html("<p> </p>");
 				section2.html("<p> </p>");
 				$("#countdown h4, h5").remove();
-        game.incorrect=0;
-        game.correct=0;
+        		game.incorrect=0;
+        		game.correct=0;
 
 				timer = setInterval(game.countdown, 1000);
 				$("#countdown").append("<h4>Time Left: <span id='counter-number'>60</span> Seconds</h4>");
@@ -95,10 +95,10 @@ $(document).ready(function(){
 				$.each($("input[type='radio']:checked"), function(index, checkedElement) {
 					if ($(checkedElement).val() == questions[index].correctAnswer) {
 						game.correct++;
-            console.log("This is correct",checkedElement);
+            			console.log("This is correct",checkedElement);
 					} else {
 						game.incorrect++;
-            console.log("Incorrect",checkedElement);
+            			console.log("Incorrect",checkedElement);
 					}
 
 				});
